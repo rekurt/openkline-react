@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { OHLCVChart, type OHLCVChartRef } from '@rekurt/ohlcv-react';
+import { OHLCVChart, type OHLCVChartRef } from '@rekurt/openkline-react';
 import {
   formatPrice,
   formatTime,
@@ -17,7 +17,7 @@ import {
   type HoverInfo,
   type Indicator,
   type ThemeMode,
-} from '@rekurt/ohlcv-core';
+} from '@rekurt/openkline-core';
 import {
   SYMBOLS,
   RESOLUTIONS,

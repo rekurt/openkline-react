@@ -15,7 +15,7 @@ import {
   type ThemeMode,
   type ThemeColors,
   type Messages,
-} from '@rekurt/ohlcv-core';
+} from '@rekurt/openkline-core';
 
 export interface UseOHLCVChartOptions {
   symbol: string;

@@ -1,5 +1,5 @@
 {
-  "name": "@rekurt/ohlcv-react-example",
+  "name": "@rekurt/openkline-react-example",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -9,8 +9,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@rekurt/ohlcv-core": "file:../vendor/rekurt-ohlcv-core.tgz",
-    "@rekurt/ohlcv-react": "file:..",
+    "@rekurt/openkline-core": "file:../vendor/rekurt-openkline-core.tgz",
+    "@rekurt/openkline-react": "file:..",
     "react": "^19.2.6",
     "react-dom": "^19.2.6"
   },

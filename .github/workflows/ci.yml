@@ -29,7 +29,7 @@ jobs:
           cache: npm
 
       - name: Install dependencies
-        # @rekurt/ohlcv-core is vendored as a tarball in vendor/ until it
+        # @rekurt/openkline-core is vendored as a tarball in vendor/ until it
         # is published to npm — refresh it with `npm run update:core`.
         run: npm ci
 
@@ -40,7 +40,7 @@ jobs:
         run: npm run build
 
       - name: Typecheck
-        # The example imports `@rekurt/ohlcv-react` which resolves to
+        # The example imports `@rekurt/openkline-react` which resolves to
         # `dist/index.d.ts`, so typecheck must run AFTER the build step.
         run: npm run typecheck
 

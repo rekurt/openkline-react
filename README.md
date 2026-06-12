@@ -1,39 +1,53 @@
-# @rekurt/ohlcv-react
+<div align="center">
 
-[![CI](https://github.com/rekurt/ohlcv-react/actions/workflows/ci.yml/badge.svg)](https://github.com/rekurt/ohlcv-react/actions/workflows/ci.yml)
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](./LICENSE)
+# @rekurt/openkline-react
 
-React 18+/19 wrapper for [`@rekurt/ohlcv-core`](https://github.com/rekurt/ohlcv-front) —
-a fast, framework-agnostic OHLCV candlestick chart library. This package
-provides an idiomatic `<OHLCVChart>` component and a `useOHLCVChart` hook
-with full API parity with the core.
+### React 18+/19 wrapper for [OpenKline](https://github.com/rekurt/openkline)
 
-Related repositories:
+An idiomatic `<OHLCVChart>` component and a `useOHLCVChart` hook — full API
+parity with the framework-agnostic [`@rekurt/openkline-core`](https://github.com/rekurt/openkline)
+charting engine.
 
-- [`rekurt/ohlcv-front`](https://github.com/rekurt/ohlcv-front) — `@rekurt/ohlcv-core`: rendering, data layer, interaction, indicators, drawings
-- [`rekurt/ohlcv-vue`](https://github.com/rekurt/ohlcv-vue) — Vue 3 wrapper
+[![CI](https://github.com/rekurt/openkline-react/actions/workflows/ci.yml/badge.svg)](https://github.com/rekurt/openkline-react/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-22c55e.svg)](./LICENSE)
+[![React](https://img.shields.io/badge/React-18%20%7C%2019-61dafb.svg)](https://react.dev)
+[![TypeScript](https://img.shields.io/badge/TypeScript-strict-3178c6.svg)](./tsconfig.json)
+
+</div>
+
+---
+
+## Ecosystem
+
+| Package | Repository | Role |
+| --- | --- | --- |
+| `@rekurt/openkline-core` | [rekurt/openkline](https://github.com/rekurt/openkline) | Engine: rendering, data, interaction, indicators, drawings. |
+| **`@rekurt/openkline-react`** | **this repo** | **React 18+/19 wrapper.** |
+| `@rekurt/openkline-vue` | [rekurt/openkline-vue](https://github.com/rekurt/openkline-vue) | Vue 3 wrapper. |
+
+---
 
 ## Install
 
 ```bash
-npm install @rekurt/ohlcv-core @rekurt/ohlcv-react
+npm install @rekurt/openkline-core @rekurt/openkline-react
 ```
 
-> **Note**: until the packages are published to npm, this repo vendors a
-> built core tarball in `vendor/rekurt-ohlcv-core.tgz` so that
+> **Pre-release note:** until the packages are published to npm, this repo
+> vendors a built core tarball at `vendor/rekurt-openkline-core.tgz` so
 > `npm install` works out of the box. Refresh it with `npm run update:core`.
+
+---
 
 ## Usage
 
 ```tsx
-import { useRef, useState, useMemo } from 'react';
-import { OHLCVChart, type OHLCVChartRef } from '@rekurt/ohlcv-react';
-import type { Candle, IndicatorConfig } from '@rekurt/ohlcv-core';
+import { useRef, useMemo } from 'react';
+import { OHLCVChart, type OHLCVChartRef } from '@rekurt/openkline-react';
+import type { Candle, IndicatorConfig } from '@rekurt/openkline-core';
 
 export function App({ candles }: { candles: Candle[] }) {
   const chartRef = useRef<OHLCVChartRef>(null);
-  const [symbol, setSymbol] = useState('BTC/USDT');
-  const [resolution, setResolution] = useState('1H');
 
   // Indicators are a plain config array — no `new SMA(20)` in user code.
   // The wrapper runs them through createIndicator() + diffIndicatorConfigs()
@@ -48,23 +62,41 @@ export function App({ candles }: { candles: Candle[] }) {
   );
 
   return (
-    <div style={{ width: '100%', height: '600px' }}>
+    <div style={{ width: '100%', height: 600 }}>
       <OHLCVChart
         ref={chartRef}
-        symbol={symbol}
-        resolution={resolution}
+        symbol="BTC/USDT"
+        resolution="1H"
         data={candles}
         theme="auto"
         chartType="candles"
         indicators={indicators}
         onHover={(info) => console.log('hovered', info?.index)}
-        onError={(err) => console.error('[chart]', err)}
+        onError={(err) => console.error('[openkline]', err)}
       />
       <button onClick={() => chartRef.current?.goToLive()}>Go live</button>
     </div>
   );
 }
 ```
+
+### Imperative API
+
+Everything the core exposes is reachable through the typed `OHLCVChartRef`:
+`goToLive()`, `saveLayoutState()` / `loadState()`, drawing and indicator
+management, PNG/SVG export, and more. Prefer declarative props for state that
+React owns; reach for the ref for imperative actions (export, share, fit).
+
+---
+
+## Why a wrapper, not a rewrite
+
+All chart logic lives in `@rekurt/openkline-core`. This package owns only the
+React glue — mounting the canvas, wiring props to engine calls, and forwarding a
+stable ref. That is why it tracks the core's features automatically and stays at
+**full API parity** with the vanilla and Vue entry points.
+
+---
 
 ## Development
 
@@ -75,12 +107,14 @@ npm test             # vitest (jsdom)
 npm run lint         # ESLint, --max-warnings 0
 npm run typecheck    # strict tsc (run after build — example needs dist/)
 npm run dev:example  # vite demo app → http://localhost:5174
-npm run update:core  # refresh vendor/rekurt-ohlcv-core.tgz from the monorepo
+npm run update:core  # refresh vendor/rekurt-openkline-core.tgz from the monorepo
 ```
 
 The `example/` workspace is a full-featured Vite demo (drawing tools,
 indicators, live simulation, Heikin-Ashi/Renko transforms, PNG export).
 
+---
+
 ## License
 
-MIT
+[MIT](./LICENSE) © OpenKline contributors
