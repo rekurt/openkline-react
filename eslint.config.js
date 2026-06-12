@@ -1,4 +1,4 @@
-// Flat ESLint config for @rekurt/ohlcv-react.
+// Flat ESLint config for @rekurt/openkline-react.
 //
 // Scopes:
 //   - src/ — strict TypeScript + no-console (lib code should dispatch

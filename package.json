@@ -1,17 +1,17 @@
 {
-  "name": "@rekurt/ohlcv-react",
+  "name": "@rekurt/openkline-react",
   "version": "0.1.0",
-  "description": "React 18+/19 wrapper for @rekurt/ohlcv-core — <OHLCVChart> component and useOHLCVChart hook.",
+  "description": "React 18+/19 wrapper for @rekurt/openkline-core — <OHLCVChart> component and useOHLCVChart hook.",
   "keywords": ["ohlcv", "candlestick", "chart", "react", "trading", "canvas"],
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rekurt/ohlcv-react.git"
+    "url": "git+https://github.com/rekurt/openkline-react.git"
   },
   "bugs": {
-    "url": "https://github.com/rekurt/ohlcv-react/issues"
+    "url": "https://github.com/rekurt/openkline-react/issues"
   },
-  "homepage": "https://github.com/rekurt/ohlcv-react#readme",
+  "homepage": "https://github.com/rekurt/openkline-react#readme",
   "type": "module",
   "exports": {
     ".": {
@@ -46,13 +46,13 @@
     "node": ">=18.18.0"
   },
   "peerDependencies": {
-    "@rekurt/ohlcv-core": "^0.1.0",
+    "@rekurt/openkline-core": "^0.1.0",
     "react": ">=18",
     "react-dom": ">=18"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.4",
-    "@rekurt/ohlcv-core": "file:./vendor/rekurt-ohlcv-core.tgz",
+    "@rekurt/openkline-core": "file:./vendor/rekurt-openkline-core.tgz",
     "@types/node": "^25.9.1",
     "@types/react": "^19.2.15",
     "@types/react-dom": "^19.0.0",
