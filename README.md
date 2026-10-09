@@ -30,12 +30,12 @@ charting engine.
 ## Install
 
 ```bash
-npm install @rekurt/openkline-core @rekurt/openkline-react
+npm install @rekurt/openkline-core@^0.2.0 @rekurt/openkline-react
 ```
 
-> **Pre-release note:** until the packages are published to npm, this repo
-> vendors a built core tarball at `vendor/rekurt-openkline-core.tgz` so
-> `npm install` works out of the box. Refresh it with `npm run update:core`.
+For development from a repository checkout, this repo uses a tested core
+0.2.0 tarball at `vendor/rekurt-openkline-core.tgz`. Application installations
+use the npm peer dependency shown above.
 
 ---
 
