@@ -30,7 +30,7 @@ charting engine.
 ## Install
 
 ```bash
-npm install @rekurt/openkline-core @rekurt/openkline-react
+npm install @rekurt/openkline-core@^0.2.0 @rekurt/openkline-react
 ```
 
 > **Pre-release note:** until the packages are published to npm, this repo

@@ -1,8 +1,15 @@
 {
   "name": "@rekurt/openkline-react",
   "version": "0.1.0",
-  "description": "React 18+/19 wrapper for @rekurt/openkline-core — <OHLCVChart> component and useOHLCVChart hook.",
-  "keywords": ["ohlcv", "candlestick", "chart", "react", "trading", "canvas"],
+  "description": "React 18+/19 wrapper for @rekurt/openkline-core \u2014 <OHLCVChart> component and useOHLCVChart hook.",
+  "keywords": [
+    "ohlcv",
+    "candlestick",
+    "chart",
+    "react",
+    "trading",
+    "canvas"
+  ],
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -28,8 +35,13 @@
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
-  "files": ["dist", "README.md"],
-  "workspaces": ["example"],
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "workspaces": [
+    "example"
+  ],
   "scripts": {
     "build": "tsup",
     "dev": "tsup --watch",
@@ -39,14 +51,15 @@
     "typecheck": "tsc --noEmit -p tsconfig.json && tsc --noEmit -p example/tsconfig.json",
     "dev:example": "npm run dev -w example",
     "build:example": "npm run build -w example",
-    "update:core": "node scripts/update-core.mjs"
+    "update:core": "node scripts/update-core.mjs",
+    "prepack": "npm run build"
   },
   "sideEffects": false,
   "engines": {
     "node": ">=18.18.0"
   },
   "peerDependencies": {
-    "@rekurt/openkline-core": "^0.1.0",
+    "@rekurt/openkline-core": "^0.2.0",
     "react": ">=18",
     "react-dom": ">=18"
   },
@@ -67,5 +80,8 @@
     "typescript": "~6.0.3",
     "typescript-eslint": "^8.60.1",
     "vitest": "^4.1.8"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
